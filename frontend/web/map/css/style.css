@@ -1,0 +1,14 @@
+.clear{ clear:both}
+#con_box{display:block; overflow:visible;position:fixed;z-index:9999; border:#fc7732 solid 1px; width:200px; height:160px; -moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px; right:75px; bottom:0px;
+ _position: absolute;_top: expression(documentElement.scrollTop + documentElement.clientHeight/2 +120 + "px"); float:right; background:#fff}
+.con_top{ width:200px; height:30px; background:#fc7732; position:relative; }
+.con_top a{ width:180px;color:#fff; font-size:14px; line-height:30px;  padding-left:10px; float:left; font-family:Microsoft YaHei,SimHei;}
+.con_top font{ font-size:16px;}
+.con_top span{ width:26px; height:26px; background:url(../images/gb2.png) no-repeat; float:right; position:absolute; z-index:999; border:none; bottom:10px; right:-5px;}
+.con_txt{ width:170px; height:50px; border:1px #dedede solid; margin:10px auto 0; display:block; padding:5px; color:#555; font-size:14px; line-height:23px; }
+.con_btn{width:86px; height:28px; background:url(../images/tc_bt2.gif) no-repeat; border:none; color:#fff; cursor:pointer; margin:15px auto 0; display:block}
+.question{ width:35px; height:110px;}
+.con_zx{display:none; width:35px; height:110px;overflow:visible;position:fixed;z-index:9999; right:75px; bottom:0px;
+ _position: absolute;_top: expression(documentElement.scrollTop + documentElement.clientHeight/2 +120 + "px"); float:right; background:#fc7732;}
+.con_zx span{ width:26px; height:26px; background:url(../images/gb2.png) no-repeat; float:right; position:absolute; z-index:999; border:none; bottom:95px; right:15px;}
+.con_zx a{font-family:Microsoft YaHei,SimHei; width:25px; height:100px; color:#fff; font-size:16px; text-align:center; margin:15px auto 0; display:block}

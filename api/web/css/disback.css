@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+.disback-cont{ width:990px;margin:0 auto 0;}
+.dis-bread{ font-size:12px; background:url(../images/hosu.png) no-repeat 0 1px; padding-left:20px; margin-bottom:12px;  color: #999;}
+.dis-bread a{margin:0 5px; color:#333;}
+.dis-bread a.bolde{ font-weight:bold;}
+.dis-main{ border:1px solid #e5e5e5;}
+ .d-titr{padding:0 17px 0 15px;font-size:14px; border-bottom:2px solid #e5e5e5;border-top:4px solid #009967; position:relative; height:54px; line-height:54px;}
+ .d-titr h3{font-size:16px;}
+ .d-titr a{ position:absolute; top:10px; right:15px;width: 70px; height: 35px;  background:#009967; border-radius:5px; text-align:center; line-height:34px; color:#fff; font-family:"微软雅黑"}
+.dis-main .d-clas-add{margin:20px 15px 0 15px;border-bottom:1px dotted #e0e0e0; padding-bottom:20px;}
+.dis-main .d-clas-add b{background:url(../images/axod.png) no-repeat 0 2px; padding-left:12px; margin-right:4px;}
+.dis-main .d-clas-add input{width:356px; height:26px; border:1px solid #c1c4cb; padding-left:11px;}
+.dis-main .d-clas-add button{width:56px;height:30px; margin-top:10px; background:#f1f1f1; border:1px solid #dedede;border-radius:3px;  color:#555; outline:none;}
+.dis-main .savew{margin:0 0 26px 0;text-align:center;}
+.dis-main .savew a{width:84px; height:34px; background:#009967; border-radius:5px; line-height:34px; color:#fff; font-family:"微软雅黑";font-size:16px;  display: inline-block;}
+.dis-main .dis-main{position:relative;  }
+.dis-main .d-pop-cidr{ border:1px solid #c1c4cb;overflow:hidden;  background:#fff;padding:0 12px; width:824px; margin-left:90px;}
+.dis-main .d-pop-cidr .d-symp-m{ overflow:hidden;margin: 11px 0 4px 0;}
+.dis-main .d-pop-cidr .d-symp-m li{ float:left; margin-bottom:10px; margin:0 35px 12px 0; position:relative; cursor:pointer;}
+.dis-main .d-pop-cidr .d-symp-m li.hover i{background:url(../images/erro.png) no-repeat 0 0;  position:absolute; top:2px;  cursor:pointer; right: -16px; width:14px; height:14px;}
+.dis-main .d-line{border-bottom:1px  dashed #e4e5e6;}
+/*疾病管理*/
+.dis-main .d-manar a{width:81px;background:#ff6600;}
+table{ text-align:center; font-size:14px; border-left:1px solid #fff; margin-top:20px;}
+table th {color: #464646; border-right:1px solid #fdfdfd; border-top:1px solid #e1e1e1;border-bottom: 1px solid #e5e5e5; letter-spacing: 2px;height:46px;
+    background:#ececec;text-align: center;font-weight:bold;position:relative;}
+table tr{ height:35px;}
+table th:after{ content:""; position:absolute; right:0;top:0;  border-right:1px solid #e3eaf2;height:100%;width:1px;}
+tbody td{ font-size:14px; color:#333;}
+td {  border-right:1px solid #fdfdfd;border-bottom: 1px solid #e5e5e5; font-size:11px; height:36px;color: #4f6b72;  position:relative;}
+td a:hover{ text-decoration:underline; color:#ff6600;}
+td:after{ content:""; position:absolute; right:0;top:0;  border-right:1px solid #e3eaf2;height:100%;width:1px;}
+th.input{display:block;}
+input{width:15px;height:14px; background:#fff; border:1px solid #d2d2d2;}
+.d-asrl{ display:block;margin: 0 auto;}
+table .d-editor{color:#0975e3;}
+table .d-delet{color:#888888;}
+.paget{overflow:hidden; font-size:14px;  padding:0 364px;margin: 14px 0;}
+.paget a{ float:left; margin: 0 4px; width:22px; height:22px ;text-align: center;line-height: 22px; display:inline-block;}
+.paget span{ float:left;  color: #666; margin-top: 3px;}
+.paget a:hover{ background:#009967; color:#fff;}
+.paget a.curt{background:#009967; color:#fff;}
+.paget .hko{border:1px solid #e9e9e9;color:#ccc;  text-align: center;}
+.paget .hko{background:0; margin:0 2px;  width: 22px;  height: 22px;}
+.paget .kos{margin-right:5px;}
+.qbwrt{ position:fixed; top:0; left:0; width:100%; height:100%; background:url(../images/d-show.png); z-index:3000;}
+.d-list-form{background:#fff;z-index:999; position: absolute; width:990px;position:absolute;top:50%;left:50%;margin:-345px 0 0 -496px; border-top:0; padding-bottom:14px;}
+.d-list-form .d-grew{border-top:4px solid #009967;}
+.d-list-form .d-grew a{ background:0; top:15px;right:-12px;}
+.meau{ padding:0 15px;}
+.age, .profess{ width:222px; height:26px; border:1px solid #c1c4cb; position:relative; cursor:pointer; margin-top:19px;border-radius:2px;}
+.age p , .profess p{height:26px;padding-left:10px;line-height:26px;  color:#888;background: url(../images/arroe.png) no-repeat right 0px;}
+ .onhid, .lmos{ position:absolute; z-index:300;top:27px; left: -1px;  background:#fff; border:1px solid #cdcdcd;  width:222px; display:none; border-top: 0;  padding-bottom: 5px;}
+ .onhid li , .lmos li{color:#888; font-size:14px;display:block; width:212px;  line-height:24px; height:24px; margin-bottom:0;padding-left: 10px; }
+.onhid li:hover, .lmos li:hover,.onlsex li:hover{background:#e1f7f0; color:#009967;}
+.meau b{float:left;font-weight:normal;   margin: 23px 0 0 0; color:#333333;}
+ .meau b.d-amdei{ margin:23px 0 0 21px;}
+.d-list-form .d-kodrl{ position:absolute; bottom:19px; left:13px; }
+.d-list-form .d-kodrl a{ float:left; display:block; font-size:14px; color:#fff;width:77px;height:35px;background: url(../images/d-butt.png) no-repeat; font-family:"微软雅黑";line-height:37px; text-align:center;}
+.d-list-form .d-kodrl .d-save-elec{ background-position:0 0; }
+.d-list-form .d-kodrl .d-sr-elec{background-position:0 -85px; margin-left:14px; color:#666;}
+.d-heir{height:354px;}
+.dis-main .d-aoue-q{ border-bottom:0; padding-bottom:14px;}
+.d-mruw{ margin-top:23px;}
+.dis-main .d-meuw {width:903px;}
+.dis-main .d-meuw li{float:left;}
+.dis-main .d-meuw li b{ width:60px; text-align:right;}
+.dis-main .d-meuw li input{ width:219px; height:26px;}
+.dis-main .d-meuw li .d-samw-o{width:76px;height:30px; line-height:30px;_height:30px;display:block;border:0;cursor:pointer;background:#1ebfc7;position:absolute;top:-3px;background:url(../images/d-sec.gif) no-repeat; right: -94px; color:#fff;font-size:16px; font-family:"microsoft YaHei";}
+.dis-main .d-meuw li .d-lisre-xer{ width:448px;}
+.dis-main .d-mass-produ{}
+.dis-main .d-schr,.dis-main .d-scee{color:#009967;}
+.dis-main .d-shre{color:#fa355a;}
+.dis-main .mkdo{ margin-top:10px;}
+.d-lfour{ width:282px;}
+.d-foue { width:186px;}
+.d-forw{  right: -93px;}
