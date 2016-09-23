@@ -23,7 +23,8 @@ class Userp extends Common
      * @param $params
      * @return array
      */
-    public static function center($params){
+    public static function center($params)
+    {
         $res = array();
         return self::result($res);
     }
@@ -31,7 +32,8 @@ class Userp extends Common
     /**头像上传
      * @param $file
      */
-    public static function portrait($file){
+    public static function portrait($file)
+    {
         //接收file文件
     }
 
@@ -57,11 +59,12 @@ class Userp extends Common
      * @param $params
      * @return array
      */
-    public static function sex($params){
+    public static function sex($params)
+    {
         $userid = intval($params['userid']);
         $sex = $params['sex'];
         $updates = array(
-            'sex'=>$sex
+            'sex' => $sex
         );
         $res = Member::updateInfo($userid, $updates);
         $status = $res ? 200 : 500;
@@ -69,18 +72,77 @@ class Userp extends Common
         return self::result($status, $message, array());
     }
 
+    /**
+     * 用户是否已经绑定手机号
+     * @param $userid
+     * @return array
+     */
+    public static function isBindMobile($userid){
+        $member = new Member();
+        $res = $member->get_one(['uid'=>$userid]);
+        if($res){
+            return Common::result(200,'',['isbinding'=>$res['is_binding_mobile']]);
+        }
+        return Common::result(500,'',[]);
+    }
+
+    /**
+     * 绑定手机号---获取验证码
+     * @param $params ['mobile'=>'110']
+     */
+    public static function bindSmsVerification($params)
+    {
+        //手机号合法性
+        $validate = Mobile::validateMobile($params['mobile']);
+        if ($validate) {
+            //手机号是否存在
+            $member = new Member();
+            $res = $member->get_one(['mobile' => $params['mobile'], 'source' => 3]);
+            if ($res) {
+                return Common::result(200, '该手机号已经使用！', []);
+            }
+            //发送
+            return Mobile::smsVerification($params);
+        }
+    }
+
+    /**
+     * 绑定手机号 ['mobile'=>110,'userid'=>1001]
+     */
+    public static function bindMobile($params)
+    {
+        $mobile = $params['mobile'];
+        $userid = $params['userid'];
+        $validate = Mobile::validateMobile($mobile);
+        if ($validate) {
+            $res = Member::updateInfo($userid, ['mobile' => $mobile, 'is_binding_mobile' => 1]);
+            if ($res) {
+                return Common::result(200, '绑定成功！', []);
+            }
+        }
+        return Common::result(500, '绑定失败！', []);
+    }
+
     /**手机号 设置、修改
      * @param $params
      * @return array
      */
-    public static function mobile($params){
-        // phone  captcha(验证码)
+    public static function mobile($params)
+    {
+        //captcha(验证码)
         $userid = intval($params['userid']);
-        $captcha_fore = $params['captcha'];
-        $captcha_back = '';//后台验证码
-        //验证
+        $captcha = $params['captcha'];
+        $captcha_validate = Mobile::validateSmsVerification($userid, $captcha);//后台验证码
+        //phone验证
+        if (!$captcha_validate) {
+            return self::result(500, '验证码不正确！', array());
+        }
 
         $mobile = $params['mobile'];
+        $vmobile = Mobile::validateMobile($mobile);
+        if (!$vmobile) {
+            return self::result(500, '手机号格式不正确！', array());
+        }
         $updates = array(
             'mobile' => $mobile
         );
@@ -93,10 +155,10 @@ class Userp extends Common
     /**密码 修改
      * @param $params
      */
-    public static function passwords($params){
+    public static function passwords($params)
+    {
         // newpw oldpw
     }
-
 
 
     public static function login($params)
@@ -124,7 +186,6 @@ class Userp extends Common
         }
         return self::result($code, $msg, $params);
     }
-
 
 
     /**

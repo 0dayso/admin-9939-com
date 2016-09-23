@@ -126,7 +126,10 @@ class User extends Common {
         }
         return $ret;
     }
-
+    /**
+     * 批量同步用户到IM
+     * @return array
+     */
     public static function batch_create_imaccount() {
         $condition = ['status' => 0];
         $return_info = Users::search($condition);
@@ -236,9 +239,6 @@ class User extends Common {
                 return "请填写真实姓名";
             if ($data['doc_hos'] == "")
                 return "请填写就职医院";
-//            if ($data['doc_keshi'] == "")
-//                return "请填写所在科室";
-
             if ($data['qh'] == "")
                 return "请填写区号";
             if ($data['dwdh'] == "")

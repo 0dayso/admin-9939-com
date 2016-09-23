@@ -3,6 +3,7 @@
 namespace api\models;
 
 use api\models\Common;
+use common\models\im\Users;
 use common\models\im\Talks;
 use common\models\im\TalksDetail;
 
@@ -98,15 +99,44 @@ class Ask extends Common {
         $offset = intval($params['offset']);
         $size = intval($params['size']);
         $talks_id = isset($params['talks_id']) ? $params['talks_id'] : 0;
-        $condition = array();
         if ($talks_id > 0) {
+            $condition = array();
             $condition['talks_id'] = $talks_id;
-            $orderby = array('createtime' => SORT_DESC);
+            $orderby = array('createtime' => SORT_ASC);
             $ret = TalksDetail::search($condition, $offset, $size, $orderby, true);
             return self::result(200, '获取数据成功', $ret);
         } else {
             return self::result(201, '参数失败:问题ID不存在!', null);
         }
     }
-
+    
+    /**
+     * 获取问题回复列表
+     * @param type $params
+     * @return type
+     */
+    public static function get_talks_users($params) {
+        $talks_id = isset($params['talks_id']) ? $params['talks_id'] : 0;
+        $condition = array();
+        if ($talks_id > 0) {
+            $talk = Talks::getById($talks_id);
+            if(!empty($talk)){
+                $ref_user_ids = [];
+                if($talk['sender_uid']>0){
+                    $ref_user_ids[] = $talk['sender_uid'];
+                }
+                if($talk['receiver_uid']>0){
+                    $ref_user_ids[] = $talk['receiver_uid'];
+                }
+                $condition = ['uid'=>$ref_user_ids];
+                $rel_user_list = Users::findAll($condition);
+                return self::result(200, '获取数据成功', $rel_user_list);
+            }else{
+                return self::result(201, '问答不存在!', null);
+            }
+        } else {
+            return self::result(201, '参数失败:问题ID不存在!', null);
+        }
+    }
+    
 }
